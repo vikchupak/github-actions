@@ -1,0 +1,23 @@
+name: github-actions
+
+networks:
+  nest-network:
+    name: nest-network
+    driver: bridge
+
+services:
+  nest-backend:
+    container_name: nest-backend
+    image: nest-backend
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 3000:3000 # Sever port map
+      - 9229:9229 # Default node.js debug port
+    volumes:
+      - ./:/app
+      - /app/node_modules # Anonymous volume to exclude host's node_modules mount. Isolated to this container
+    networks:
+      - nest-network
+    command: npm run start:docker:debug
