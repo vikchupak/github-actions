@@ -50,6 +50,6 @@ jobs:
 
       - name: Build, tag and push Docker image
         run: |
-          IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/my-nestjs-app:latest
+          IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/my-nestjs-app:github-actions
           docker build -t $IMAGE_NAME .
           docker push $IMAGE_NAME
