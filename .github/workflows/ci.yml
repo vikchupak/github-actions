@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  lint-test-build:
+  lint-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -30,14 +30,10 @@ jobs:
       - name: Run e2e tests
         run: npm run test:e2e -- --ci --runInBand
 
-      # Make sure image can be buit successfully
-      - name: Build Docker image
-        run: docker build -t my-nestjs-app .
-
   # Run only for main branch
-  push:
+  build-push:
     runs-on: ubuntu-latest
-    needs: lint-test-build
+    needs: [lint-test]
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
@@ -48,7 +44,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build, tag and push Docker image
+      - name: Build and push Docker image
         run: |
           IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/my-nestjs-app:github-actions
           docker build -t $IMAGE_NAME .
