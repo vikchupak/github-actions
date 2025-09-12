@@ -1,6 +1,10 @@
 {
     "recommendations": [
-        "dbaeumer.vscode-eslint", // ESLint
-        "esbenp.prettier-vscode", // Prettier
+        // ESLint
+        "dbaeumer.vscode-eslint",
+        // Prettier
+        "esbenp.prettier-vscode",
+        // GitLens
+        "eamodio.gitlens",
     ]
 }
