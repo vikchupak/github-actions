@@ -11,6 +11,8 @@ async function bootstrap() {
 
   console.log(`✅ Message from script: ${message}`);
 
+  // test commit
+
   await app.close();
 }
 
