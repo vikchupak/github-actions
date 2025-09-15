@@ -8,6 +8,6 @@
         "source.fixAll.eslint": "always"
     },
     "files.associations": {
-        ".env*": "dotenv"
+        ".env*": "env"
     },
 }
