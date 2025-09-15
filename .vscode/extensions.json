@@ -6,9 +6,10 @@
         "esbenp.prettier-vscode",
         // GitLens
         "eamodio.gitlens",
-        "yoavbls.pretty-ts-errors",
-        "redhat.vscode-yaml",
         "usernamehw.errorlens",
+        "yoavbls.pretty-ts-errors",
         "ms-vscode.makefile-tools",
+        "redhat.vscode-yaml",
+        "mikestead.dotenv",
     ]
 }
